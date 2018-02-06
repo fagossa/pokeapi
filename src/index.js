@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ShoppingList from './ShoppingList';
+import {Square, Board, Game} from './Game';
 
 /* eslint-disable */
 
-class HelloMessage extends React.Component {
-  render() {
-    return <div>Hello {this.props.name}</div>;
-  }
-}
-
 ReactDOM.render(
-  <HelloMessage name="John" />,
+  <ShoppingList />,
   document.getElementById('root')
 );
