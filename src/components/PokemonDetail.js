@@ -1,34 +1,99 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const PokemonSkills = (abilities) => {
-    console.warn(abilities)
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+
+const PokemonSkills = ({ skills }) => {
     return (
-        <div className="col">
-            <div className="container">
-            {abilities.skills.map(skill => 
-                <div key={skill.ability.name} className="col">
-                    {skill.base_experience}
-                </div>
+        <Card style={{ width: '18rem' }}>
+            <Card.Body>
+                <Card.Title>Skills</Card.Title>
+                <ListGroup>
+                    {skills.map(skill =>
+                        <ListGroup.Item 
+                        key={skill.ability.name} 
+                        variant={skill.is_hidden ? 'warning' : '' }
+                        >
+                        {skill.ability.name}
+                    </ListGroup.Item>
                 )}
-            </div>
-        </div>
+            </ListGroup>        
+            </Card.Body>
+        </Card>
     )
 }
-// abilities: Array(2), base_experience: 112, forms: Array(1), game_indices: Array(20), height: 4, 
-const PokemonDetail = ({ pokemon }) => {
-    console.log(pokemon)
+
+const PokemonMoves = ({moves}) => {
     return (
-        <div className="container">
-            <div className="row">
-                <PokemonSkills skills={pokemon.abilities} />
-                <div className="col">
-                    Column
-                </div>
-                <div className="col">
-                    Column
-                </div>
-            </div>
-        </div>
+        <Card style={{ width: '18rem' }}>
+            <Card.Body>
+                <Card.Title>Moves</Card.Title>
+                <ListGroup>
+                    {moves.map(obj =>
+                        <ListGroup.Item 
+                            key={obj.move.name}>
+                        {obj.move.name}
+                    </ListGroup.Item>
+                )}
+            </ListGroup>        
+            </Card.Body>
+        </Card>
+    )
+}
+
+const PokemonSprites = ({sprites}) => {
+    const imgs = [
+        sprites.back_default, sprites.back_shiny, sprites.front_default, 
+        sprites.back_female, sprites.back_shiny_female, sprites.front_female
+    ];
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            if (count === imgs.length - 1) {
+                setCount(0);
+            } else {
+                setCount(count + 1);
+            }
+         }, 1000);
+     
+        return () => clearTimeout(timeout);
+       });     
+
+    return (
+        <Card style={{ width: '18rem' }}>
+            <Card.Body>
+                <Card.Title>Sprites</Card.Title>
+                <Container>
+                    <Row>
+                        <Col>
+                            <img src={imgs[count]} alt=""/>
+                        </Col>
+                    </Row>
+                </Container>        
+            </Card.Body>
+        </Card>
+    )
+}
+
+const PokemonDetail = ({ pokemon }) => {
+    return (
+        <span>
+            <Row>
+                <Col sm={4}>
+                    <PokemonSkills skills={pokemon.abilities || []} />
+                </Col>
+                <Col sm={4}>
+                    <PokemonMoves moves={pokemon.moves || []} />
+                </Col>
+                <Col sm={4}>
+                    <PokemonSprites sprites={pokemon.sprites} />
+                </Col>
+            </Row>
+        </span>
     )
 }
 

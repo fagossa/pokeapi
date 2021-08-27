@@ -1,7 +1,10 @@
-import React, { useState /*, useEffect*/ } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import PokemonSearch from './PokemonSearch';
 import PokemonDetail from './PokemonDetail';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const PokemonApp = () => {
     const [currentPokemon, setCurrentPokemon] = useState(null)
@@ -12,18 +15,23 @@ const PokemonApp = () => {
         setCurrentPokemon(data)
     }
 
-    // useEffect(() => {
-    //     searchPokemon('pikachu');
-
-    //   }, []);
+    useEffect(() => {
+        searchPokemon('pikachu');
+      }, []);
 
     return (
-        <div>
-            <PokemonSearch onSearch={searchPokemon}/>
-            {currentPokemon 
-                ? <PokemonDetail pokemon={currentPokemon}/> 
-                : 'no pokemon found'}
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <PokemonSearch onSearch={searchPokemon} />
+                </Col>
+            </Row>
+            {currentPokemon
+                ? <PokemonDetail pokemon={currentPokemon} />
+                : 
+                <Row><Col> no pokemon found</Col></Row>
+            }
+        </Container>
     )
 }
 
