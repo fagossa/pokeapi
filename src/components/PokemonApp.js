@@ -16,7 +16,7 @@ const PokemonApp = () => {
     }
 
     useEffect(() => {
-        searchPokemon('pikachu');
+        searchPokemon('bulbasaur');
       }, []);
 
     return (
