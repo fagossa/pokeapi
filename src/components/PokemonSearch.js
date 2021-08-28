@@ -6,16 +6,20 @@ const PokemonSearch = ({ onSearch }) => {
     const [name, setName] = useState('')
 
     return (
-        <Form>
-            <Form.Group className="mb-3">
-                <Form.Control 
+        <Form className="d-flex" onSubmit={(e) => {
+            e.preventDefault();
+            onSearch(name)
+        }}>
+            <Form.Control 
+                    type="search"
+                    aria-label="Search"
+                    className="mr-2"
                     value={name} 
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Pokemon name" />
-            </Form.Group>
-            <Button variant="primary" 
-                    onClick={() => onSearch(name)}>Search</Button>
-            <p/>
+            <Button variant="primary" onClick={() => onSearch(name)}>
+                    Search
+            </Button>
         </Form>
     )
 }

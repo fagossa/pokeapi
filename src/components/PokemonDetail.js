@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 
 const PokemonSkills = ({ skills }) => {
     return (
@@ -78,7 +79,7 @@ const PokemonSprites = ({sprites}) => {
 
 const PokemonDetail = ({ pokemon }) => {
     return (
-        <span>
+        <Container>
             <Row>
                 <Col sm={4}>
                     <PokemonSprites sprites={pokemon.sprites} />
@@ -90,7 +91,7 @@ const PokemonDetail = ({ pokemon }) => {
                     <PokemonMoves moves={pokemon.moves || []} />
                 </Col>
             </Row>
-        </span>
+        </Container>
     )
 }
 
