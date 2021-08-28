@@ -1,3 +1,4 @@
-deploy:
+build:
 	npm run deploy
-	rm -rf public src && cp -R build/* .
+copy:
+	cp -R build/* .
