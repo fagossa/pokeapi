@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/PokemonApp.css"],"names":[],"mappings":"AAAA,QACI,iBACJ,CAEA,QACE,kBACF","file":"main.c9fcba2e.chunk.css","sourcesContent":[".header {\n    text-align: center;\n}\n\n.navbar {\n  margin-bottom: 10px;\n}\n"]}
