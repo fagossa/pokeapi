@@ -54,7 +54,7 @@ const PokemonSprites = ({sprites}) => {
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            if (count === imgs.length - 1) {
+            if (count >= imgs.length - 1) {
                 setCount(0);
             } else {
                 setCount(count + 1);
@@ -62,16 +62,18 @@ const PokemonSprites = ({sprites}) => {
          }, 1000);
      
         return () => clearTimeout(timeout);
-       });     
+       }, [count, imgs.length]);
 
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>
                 <Card.Title>Sprites</Card.Title>
-                <Card.Img src={imgs[count]} 
-                    width="300" 
-                    height="300">
-                </Card.Img>
+                { imgs[count] &&
+                    <Card.Img src={imgs[count]} 
+                        width="300" 
+                        height="300">
+                    </Card.Img>
+                }
             </Card.Body>
         </Card>
     )
