@@ -83,13 +83,13 @@ const PokemonDetail = ({ pokemon }) => {
     return (
         <Container>
             <Row>
-                <Col sm={4}>
+                <Col>
                     <PokemonSprites sprites={pokemon.sprites} />
                 </Col>
-                <Col sm={4}>
+                <Col>
                     <PokemonSkills skills={pokemon.abilities || []} />
                 </Col>
-                <Col sm={4}>
+                <Col>
                     <PokemonMoves moves={pokemon.moves || []} />
                 </Col>
             </Row>
