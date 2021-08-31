@@ -5,4 +5,14 @@ import PokemonApp from './components/PokemonApp';
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(<PokemonApp />, document.getElementById('root'));
+import { Provider } from 'react-redux'
+import pokemonStore from './stores'
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(
+  <Provider store={pokemonStore}>
+      {JSON.stringify(pokemonStore.getState())}
+    <PokemonApp />
+  </Provider>,
+  rootElement
+)

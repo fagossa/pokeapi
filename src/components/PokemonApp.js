@@ -1,28 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import PokemonSearch from './PokemonSearch';
 import PokemonDetail from './PokemonDetail';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-// import Navbar from 'react-bootstrap/Navbar';
 
 import './PokemonApp.css';
 
+import { addPokemon } from '../actions'
+import pokemonStore from '../stores'
+
 const PokemonApp = () => {
-    const [currentPokemon, setCurrentPokemon] = useState(null)
 
     const searchPokemon = async (name) => {
         try {
             const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
             const data = await res.json()
-            setCurrentPokemon(data)
+            pokemonStore.dispatch(addPokemon(data));
         } catch (error) {
-            setCurrentPokemon(null)
+            // TODO: show error
+            //pokemonStore.dispatch(...);
         }
     }
 
     useEffect(() => {
+        // To preload a pokemon
         //searchPokemon('bulbasaur');
     }, []);
 
@@ -46,10 +49,13 @@ const PokemonApp = () => {
                 </nav>
             </header>
             <main role="main" className="flex-shrink-0">
-                {currentPokemon
-                    ? <PokemonDetail pokemon={currentPokemon} />
-                    : <Container><Row><Col> no pokemon found</Col></Row></Container>
+                <Container>
+                {
+                    pokemonStore.getState().pokemons.PokemonApp( p => 
+                        <Row><Col><PokemonDetail /></Col></Row>
+                    )
                 }
+                </Container>
             </main>
         </span>
     )
