@@ -1,8 +1,9 @@
 import { createStore } from 'redux';
-import pokemonReducer from '../reducers';
+import allReducers from '../reducers';
 
 const pokemonStore = createStore(
-    pokemonReducer
+    allReducers,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 export default pokemonStore;

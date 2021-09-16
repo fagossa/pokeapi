@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import PokemonSearch from './PokemonSearch';
 import PokemonDetail from './PokemonDetail';
@@ -12,6 +13,8 @@ import { addPokemon } from '../actions'
 import pokemonStore from '../stores'
 
 const PokemonApp = () => {
+
+    const pokemons = useSelector(state => state.pokemon.pokemons)
 
     const searchPokemon = async (name) => {
         try {
@@ -50,11 +53,9 @@ const PokemonApp = () => {
             </header>
             <main role="main" className="flex-shrink-0">
                 <Container>
-                {
-                    pokemonStore.getState().pokemons.PokemonApp( p => 
-                        <Row><Col><PokemonDetail /></Col></Row>
-                    )
-                }
+                    <Row>
+                        { (pokemons || []).map(p => <Col><PokemonDetail pokemon={p}/></Col>) }
+                    </Row>
                 </Container>
             </main>
         </span>

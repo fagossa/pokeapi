@@ -11,7 +11,6 @@ import pokemonStore from './stores'
 const rootElement = document.getElementById('root')
 ReactDOM.render(
   <Provider store={pokemonStore}>
-      {JSON.stringify(pokemonStore.getState())}
     <PokemonApp />
   </Provider>,
   rootElement

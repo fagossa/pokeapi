@@ -11,12 +11,12 @@ const PokemonSkills = ({ skills }) => {
         <Card style={{ width: '18rem' }}>
             <Card.Body>
                 <Card.Title>Skills</Card.Title>
-                <ListGroup>
+                <ListGroup horizontal="sm">
                     {skills.map(skill =>
                         <ListGroup.Item 
-                        key={skill.ability.name} 
-                        variant={skill.is_hidden ? 'warning' : '' }
-                        >
+                            key={skill.ability.name} 
+                            variant={skill.is_hidden ? 'warning' : '' }
+                            >
                         {skill.ability.name}
                     </ListGroup.Item>
                 )}
@@ -31,7 +31,7 @@ const PokemonMoves = ({moves}) => {
         <Card style={{ width: '18rem' }}>
             <Card.Body>
                 <Card.Title>Moves</Card.Title>
-                <ListGroup>
+                <ListGroup >
                     {moves.map(obj =>
                         <ListGroup.Item 
                             key={obj.move.name}>
@@ -81,19 +81,11 @@ const PokemonSprites = ({sprites}) => {
 
 const PokemonDetail = ({ pokemon }) => {
     return (
-        <Container>
-            <Row>
-                <Col>
-                    <PokemonSprites sprites={pokemon.sprites} />
-                </Col>
-                <Col>
-                    <PokemonSkills skills={pokemon.abilities || []} />
-                </Col>
-                <Col>
-                    <PokemonMoves moves={pokemon.moves || []} />
-                </Col>
-            </Row>
-        </Container>
+        <span>
+            <PokemonSprites sprites={pokemon.sprites} />
+            <PokemonSkills skills={pokemon.abilities || []} />
+            <PokemonMoves moves={pokemon.moves || []} />
+        </span>
     )
 }
 
