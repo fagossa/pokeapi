@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/pokeapi/static/css/main.c9fcba2e.chunk.css",
-    "main.js": "/pokeapi/static/js/main.3105206b.chunk.js",
-    "main.js.map": "/pokeapi/static/js/main.3105206b.chunk.js.map",
+    "main.js": "/pokeapi/static/js/main.b651ef0d.chunk.js",
+    "main.js.map": "/pokeapi/static/js/main.b651ef0d.chunk.js.map",
     "runtime-main.js": "/pokeapi/static/js/runtime-main.d108e110.js",
     "runtime-main.js.map": "/pokeapi/static/js/runtime-main.d108e110.js.map",
     "static/css/2.818011ed.chunk.css": "/pokeapi/static/css/2.818011ed.chunk.css",
-    "static/js/2.42698f13.chunk.js": "/pokeapi/static/js/2.42698f13.chunk.js",
-    "static/js/2.42698f13.chunk.js.map": "/pokeapi/static/js/2.42698f13.chunk.js.map",
+    "static/js/2.d5278e9d.chunk.js": "/pokeapi/static/js/2.d5278e9d.chunk.js",
+    "static/js/2.d5278e9d.chunk.js.map": "/pokeapi/static/js/2.d5278e9d.chunk.js.map",
     "index.html": "/pokeapi/index.html",
     "static/css/2.818011ed.chunk.css.map": "/pokeapi/static/css/2.818011ed.chunk.css.map",
     "static/css/main.c9fcba2e.chunk.css.map": "/pokeapi/static/css/main.c9fcba2e.chunk.css.map",
-    "static/js/2.42698f13.chunk.js.LICENSE.txt": "/pokeapi/static/js/2.42698f13.chunk.js.LICENSE.txt"
+    "static/js/2.d5278e9d.chunk.js.LICENSE.txt": "/pokeapi/static/js/2.d5278e9d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d108e110.js",
     "static/css/2.818011ed.chunk.css",
-    "static/js/2.42698f13.chunk.js",
+    "static/js/2.d5278e9d.chunk.js",
     "static/css/main.c9fcba2e.chunk.css",
-    "static/js/main.3105206b.chunk.js"
+    "static/js/main.b651ef0d.chunk.js"
   ]
 }
